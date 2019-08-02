@@ -22,12 +22,12 @@ public class StudentMock {
     public void loadData() {
         students = new ArrayList<>();
 
-        students.add(new Student("Nihar Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
-        students.add(new Student("Viren Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
-        students.add(new Student("Nikunj Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
-        students.add(new Student("Priyam Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
-        students.add(new Student("Chandu Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
-        students.add(new Student("Purvit Patel", "9714319500", "patelnihar1997.pn@gmail.com"));
+        students.add(new Student("Rahul Patel", "9714319500", "patelrahul1997.pn@gmail.com"));
+        students.add(new Student("Ravi Patel", "9714319500", "patelravi1997.pn@gmail.com"));
+        students.add(new Student("Rushbh Patel", "9714319500", "patelrushbh1997.pn@gmail.com"));
+        students.add(new Student("Dhruvin Patel", "9714319500", "pateldhruvin1997.pn@gmail.com"));
+        students.add(new Student("Brijesh Patel", "9714319500", "patelbrijesh1997.pn@gmail.com"));
+        students.add(new Student("Nikunj Patel", "9714319500", "patelnukunj1997.pn@gmail.com"));
     }
 
     public ArrayList<Student> getStudents() {

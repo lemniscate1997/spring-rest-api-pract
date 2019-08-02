@@ -40,38 +40,47 @@ public class StudentController {
     @Qualifier("studentServiceImpl")
     private StudentService studentService;
 
-    @RequestMapping(value="", produces = "application/json")
+    @RequestMapping(value = "")
     public ResponseEntity<Map<String, String>> init(@RequestHeader Map<String, String> headers) {
-//        headers.forEach((key, value) -> {
-//            System.out.println(String.format("Header '%s' = %s", key, value));
-//        });
-        return ResponseEntity.status(HttpStatus.OK).body(headers);
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(headers);
     }
 
-    @GetMapping(value = "/students", produces = "application/json")
-    public ResponseEntity<List<Student>> getStudents() {
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.getStudents());
+    @GetMapping(value = "/students")
+    public ResponseEntity<List<Student>> getStudents(@RequestHeader Map<String, String> headers) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(studentService.getStudents());
     }
 
 //    @GetMapping(value = "/student/{studentId}", produces = "application/xml")
-    @GetMapping(value = "/student/{studentId}", produces = "application/json")
-    public ResponseEntity<Student> getStudent(@PathVariable int studentId) {
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.getStudent(studentId));
+    @GetMapping(value = "/student/{studentId}")
+    public ResponseEntity<Student> getStudent(@RequestHeader Map<String, String> headers, @PathVariable int studentId) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(studentService.getStudent(studentId));
     }
 
 //    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    @PostMapping(value = "/add", produces = "application/json")
-    public ResponseEntity<String> addStudent(@RequestBody @Valid Student student) {
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.addStudent(student));
+    @PostMapping(value = "/add")
+    public ResponseEntity<String> addStudent(@RequestHeader Map<String, String> headers, @RequestBody @Valid Student student) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(studentService.addStudent(student));
     }
 
-    @PutMapping(value = "/modify", produces = "application/json")
-    public ResponseEntity<String> updateStudentDetails(@RequestBody Student student) {
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.updateStudent(student.getId(), student));
+    @PutMapping(value = "/modify")
+    public ResponseEntity<String> updateStudentDetails(@RequestHeader Map<String, String> headers, @RequestBody Student student) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(studentService.updateStudent(student.getId(), student));
     }
 
-    @DeleteMapping(value = "/remove/{studentId}", produces = "application/json")
-    public ResponseEntity<String> removeStudent(@PathVariable int studentId) {
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.deleteStudent(studentId));
+    @DeleteMapping(value = "/remove/{studentId}")
+    public ResponseEntity<String> removeStudent(@RequestHeader Map<String, String> headers, @PathVariable int studentId) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", headers.get("content-type"))
+                .body(studentService.deleteStudent(studentId));
     }
 }
