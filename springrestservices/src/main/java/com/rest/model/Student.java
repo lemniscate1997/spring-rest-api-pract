@@ -29,16 +29,16 @@ public class Student {
     @Email(message = "Email should be valid")
     private String email;
 
-    static int sequence;
+//    static int sequence;
 
-    static {
-        sequence = 1;
-    }
-
-    {
-        this.id = sequence;
-        sequence++;
-    }
+//    static {
+//        sequence = 1;
+//    }
+//
+//    {
+//        this.id = sequence;
+//        sequence++;
+//    }
 
     public Student() {
     }
@@ -58,6 +58,10 @@ public class Student {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMob() {

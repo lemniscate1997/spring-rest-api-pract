@@ -25,17 +25,17 @@ import org.springframework.stereotype.Component;
  * @author rahul
  */
 //@Component
-//@Order(1)
-public class FirstFilter implements Filter {
+//@Order(2)
+public class SecondFilter implements Filter {
 
     //this method will be called by container when we send any request 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        System.out.println("First doFilter() method is invoked");
+        System.out.println("Second doFilter() method is invoked");
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         chain.doFilter(httpServletRequest, httpServletResponse);
-        System.out.println("First doFilter() method is ended");
+        System.out.println("Second doFilter() method is ended");
 
     }
 
